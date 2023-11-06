@@ -1,4 +1,4 @@
-\c fitness_app;
+\c fitness_db;
 --  ** workout_types **
 --calistethics (push up, situp, pull up)
 -- cardio (jogging, biking), 
