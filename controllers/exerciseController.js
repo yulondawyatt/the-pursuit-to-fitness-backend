@@ -3,7 +3,7 @@ const fitness_db = express.Router;
 const { getAllFitness, getFitness, createFitness, deleteFitness, updateFitness } = require("../queries/fitness.js");
 const { checkName, checkBoolean } = require('/..validations/checkFitness.js')
 
-// GET all exercises
+// GET all exercises LONDA
 fitness_db.get("/", async (req, res) => {
     const allFitness = await getAllFitness();
     if(allFitness[0]) {
