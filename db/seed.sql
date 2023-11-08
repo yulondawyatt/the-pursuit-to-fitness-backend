@@ -1,13 +1,11 @@
 \c fitness_db;
 --  ** workout_types **
---calistethics (push up, situp, pull up)
--- cardio (jogging, biking), 
--- weight-training ( dumbells, barbell ), 
--- flexibility ( yoga, pilates )  
-Insert INTO workout (workout_name, workout_days, workout_type, is_true) VALUES
-('Push ups', 3, 'calistethics', true),
-('Sit ups', 1, 'calistethics', true),
-('Jogging', 5, 'cardio', false),
-('pilates', 3, 'flexibility', true),
-('Dumbell Curl', 2, 'Weight Training', false),
-('Pull ups', 5, 'Calistethics', true)
+--calistethics (push-up, sit-up, pull-up)
+-- cardio (jogging/running, biking, swimming, treadmill), 
+-- weight-training (weight-training machines, free weights), 
+-- flexibility ( yoga, pilates, stretching)  
+Insert INTO workout_tb (workout_name, workout_type, workout_days, is_true) VALUES;
+('push-ups/sit-ups', 'calistethics', 3, true),
+('jogging/running', 'cardio', 5, false),
+('pilates/yoga/stretching', 'flexibility', 3, true),
+('free weights/weight machines', 'strength building', 2, false),
