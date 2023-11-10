@@ -1,13 +1,13 @@
 const express = require("express");
-const fitness_db = express.Router;
-const { getAllFitness, getFitness, createFitness, deleteFitness, updateFitness } = require("../queries/fitness.js");
-const { checkName, checkBoolean } = require('/..validations/checkFitness.js')
+const workout_tb = express.Router();
+const { getAllExercises, getExercise, createFitness, deleteFitness, updateFitness } = require("../queries/fitness.js");
+const { checkName, checkDays } = require('../validations/checkFitness.js')
 
-// GET all exercises LONDA
-fitness_db.get("/", async (req, res) => {
-    const allFitness = await getAllFitness();
-    if(allFitness[0]) {
-        res.status(200).json(allFitness);
+// GET all exercises
+workout_tb.get("/", async (req, res) => {
+    const allExcercises = await getAllExercises();
+    if(allExercises[0]) {
+        res.status(200).json(allExercises);
     } else {
         res.status(500).json({ error: "server error"});
     }
@@ -15,9 +15,9 @@ fitness_db.get("/", async (req, res) => {
 
 // GET one exercise / SHOW
 // localhost:3300/:id
-fitness_db.get("/:id", async (req, res) => {
-    const { id } = req.params;
-    const oneExercise = await getFitness(id);
+workout_tb.get("/:id", async (req, res) => {
+    const { id } = req.params; //convert id to a #
+    const oneExercise = await getExercise(id);
     if (oneExercise) {
         res.json(oneExercise);
     } else {
@@ -27,14 +27,14 @@ fitness_db.get("/:id", async (req, res) => {
 
 // POST a new exercise / CREATE
 // localhost:/exercise/
-fitness_db.post("/", checkName, checkBoolean, async (req, res) => {
-    const body = req.body;
-    const exercise = await createExercise(body);
-    res.status(200).json(exercise);
-});
+// fitness_db.post("/", checkName, checkDays, async (req, res) => {
+//     const body = req.body;
+//     const exercise = await createExercise(body);
+//     res.status(200).json(exercise);
+// });
 
 
 
 
 
-module.exports = fitness_db;
+module.exports = workout_tb;
