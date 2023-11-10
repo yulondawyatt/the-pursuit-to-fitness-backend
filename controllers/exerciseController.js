@@ -3,7 +3,7 @@ const workout_tb = express.Router();
 const { getAllExercises, getExercise, createFitness, deleteFitness, updateFitness } = require("../queries/fitness.js");
 const { checkName, checkDays } = require('../validations/checkFitness.js')
 
-// GET all exercises LONDA
+// GET all exercises
 workout_tb.get("/", async (req, res) => {
     const allExcercises = await getAllExercises();
     if(allExercises[0]) {
