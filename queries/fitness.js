@@ -2,18 +2,20 @@ const db = require("../db/dbConfig.js");
 
 // Get all exercises
 const getAllExercises = async () => {
-    try {
-        const allExercises = await db.any("SELECT * FROM workout_tb");
-        return allExercises;
-    } catch (error) {
-        return error;
-    }
+  try {
+    const allExercises = await db.any("SELECT * FROM workout_tb");
+    console.log("All Exercises:", allExercises);
+    return allExercises;
+  } catch (error) {
+    console.error("Error in getAllExercises:", error);
+    throw error;
+  }
 };
 
 // Get one exercise by id
 const getExercise = async (id) => {
     try {
-        oneExercise = await db.one("SELECT * FROM workout_tb WHERE id=$1", id)
+        const oneExercise = await db.one("SELECT * FROM workout_tb WHERE id=$1", id)
         return oneExercise;
     } catch (error) {
         return error;
