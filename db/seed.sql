@@ -7,5 +7,5 @@
 Insert INTO workout_tb (workout_name, workout_type, workout_days, is_true) VALUES
 ('push-ups/sit-ups', 'calistethics', 3, true),
 ('jogging/running', 'cardio', 5, false),
-('pilates/yoga/stretching', 'flexibility', 3, true),
+('pilates/yoga/stretching', 'flexibility', 1, true),
 ('free weights/weight machines', 'strength building', 2, false)

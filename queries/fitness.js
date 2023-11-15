@@ -4,8 +4,12 @@ const db = require("../db/dbConfig.js");
 const getAllExercises = async () => {
   try {
     const allExercises = await db.any("SELECT * FROM workout_tb");
-    console.log("All Exercises:", allExercises);
-    return allExercises;
+    const exercisesWithIntensity = allExercises.map((exercise) => ({
+      ...exercise,
+      isIntense: exercise.workout_days
+    }));
+    console.log("All Exercises:", exercisesWithIntensity);
+    return exercisesWithIntensity;
   } catch (error) {
     console.error("Error in getAllExercises:", error);
     throw error;
